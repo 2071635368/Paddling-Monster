@@ -6,11 +6,11 @@ int main(void)
 	int len = 0;
 	int s = 0;
 	int arr[999] = {0};
+	printf("输入要进行排序的数字(间隔为空格)：");
 	while(1)
 	{
 		if(scanf("%d", &arr[s]) == EOF)
 			break;
-		printf("<A> ");
 		s ++;
 		len ++;
 		if(getchar() == '\n')
