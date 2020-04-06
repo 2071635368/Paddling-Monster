@@ -34,7 +34,7 @@ void spilt(int* arr,int low, int lin, int len)
 	}
 	if (k < R)//如果有未排完的值则直接把未排完的值全部直接添加与其尾部（因为在有序的前提下后面的一定比前面的 大 或等于）
 	{
-		while (k < (len - LIN))
+		while (k < R)
 		{
 			arr[m] = R_arr[k];
 				k++;
@@ -43,7 +43,7 @@ void spilt(int* arr,int low, int lin, int len)
 	}
 	else if(j < L)
 	{
-		while (j < (lin - low))
+		while (j < L)
 		{
 			arr[m] = L_arr[j];
 			j++;
