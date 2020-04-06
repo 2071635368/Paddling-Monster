@@ -54,7 +54,6 @@ void spilt(int* arr,int low, int lin, int len)
 		}
 		break;
 	}
-	printf("%d | %d", arr[0], arr[1]);
 }
 
 void sort(int* arr,int LOW_len, int UP_len)
