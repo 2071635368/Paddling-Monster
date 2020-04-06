@@ -59,18 +59,21 @@ void sort(int* arr,int LOW_len, int UP_len)//把数组元素对半处理
 		return;
 	}
 
-	int LIN_len = (LOW_len + UP_len) / 2;//用于定位中间值来进行对半 也可以再 +1 这样中间值位于右半 那么右半处理不用++，而左半需要--
+	int LIN_len = (LOW_len + UP_len) / 2;//用于定位中间值来进行对半
 
 	sort(arr, LOW_len, LIN_len);//处理左半
 
-	sort(arr, (LIN_len++), UP_len);//处理右半 ++让位于左半尾部的中间值位于右半的起始
+	LIN_len++;
 	
-	spilt(arr, LOW_len, (LIN_len++), UP_len);//进行归并排序 ++可以在函数内部进行也可以外部带参++
+	sort(arr, LIN_len, UP_len);//处理右半 ++让位于左半尾部的中间值位于右半的起始
+	
+	spilt(arr, LOW_len, LIN_len, UP_len);//进行归并排序 ++可以在函数内部进行也可以外部带参++
 }
 
 void merge_sort(int* arr, int len)// 用于减少参数
 {	
-	sort(arr, 0, (len--));
+	len--;
+	sort(arr, 0, len);
 }
 
 int main(void)
