@@ -4,7 +4,7 @@
 void spilt(int* arr,int low, int lin, int len)
 {
 	int LIN = lin + 1;
-	int* L_arr[lin - low];
+	int* L_arr[Lin - low];
 	int* R_arr[len - lin];
 
 	for (int i = low; i <= lin; i++)
