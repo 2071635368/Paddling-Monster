@@ -1,9 +1,9 @@
 # include <stdio.h>
 # include <malloc.h>
-# define max 10000000 //自定义最大内存分配
 
-int test(int*, int);
-int testbit(int*);
+void merge_sort(int*, int);
+void test(int*, int);
+int testbit(void);
 
 void spilt(int* arr,int low, int lin, int len)
 {
@@ -86,11 +86,11 @@ void merge_sort(int* arr, int len)// 用于减少参数
 
 int main(void)
 {
-	int* arr = (int *)malloc(sizeof(int) * max);
-    int test = testbit(arr);
-	merge_sort(arr, test);
+    int tes = testbit();
+	int* arr = (int *)malloc(sizeof(int) * tes); 
+    test(arr, tes);
 
-	for (int i = 0; i < test; i++)
+	for (int i = 0; i < tes; i++)
 	{
 		printf("%d\n", arr[i]);
 	}
@@ -98,10 +98,24 @@ int main(void)
 	return 0;
 }
 
-int test(int* arr, int k){
-    int i, j, h, t, s = 1;
+void test(int* arr, int s){
+        int t,h;
+        t = s;
+        for(h = 0; h < s; h ++){  //让数字以倒的方式存入数组进行排序
+            arr[h] = t;
+            t --;
+            };
+	        merge_sort(arr, s);
+            return;
+    }
+
+int testbit(void){
+    int k;
+    printf("输入测试的位数: ");
+    scanf("%d", &k);
+    int i, s = 1;
     if(k > 1){
-        for(i = 1; i < k; i ++){ 
+        for(i = 1; i < k; i ++){  //输入位数进行进位，为数组的分配内存大小
             s *= 10;
             }
         }
@@ -112,18 +126,5 @@ int test(int* arr, int k){
                 printf("\n!操作停止!\n");
                 return 0;
                 }
-        t = s;
-        for(h = 0; h < s; h ++){
-            arr[h] = t;
-            t --;
-            };
-
-            return s;
-    }
-
-int testbit(int* arr){
-    int i;
-    printf("输入测试的位数: ");
-    scanf("%d", &i);
-    return test(arr, i);
+                return s;
     }

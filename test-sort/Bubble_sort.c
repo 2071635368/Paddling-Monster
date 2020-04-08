@@ -1,39 +1,41 @@
 #include<stdio.h>
 #include<malloc.h>
-#define max 10000000 //自定义内存最大分配
 
-int test(int* arr, int k){
-    int i, j, h, t, s = 1;
+void test(int* arr, int s){
+        int t,h;
+        t = s;
+        for(h = 0; h < s; h ++){  //让数字以倒的方式存入数组进行排序
+            arr[h] = t;
+            t --;
+            };
+            return;
+    }
+
+int testbit(void){
+    int k;
+    printf("输入测试的位数: ");
+    scanf("%d", &k);
+    int i, s = 1;
     if(k > 1){
-        for(i = 1; i < k; i ++){ 
+        for(i = 1; i < k; i ++){  //输入位数进行进位，为数组的分配内存大小 
             s *= 10;
             }
         }
         else if(k = 1){
             s = 9;
             }
-        t = s;
-        for(h = 0; h < s; h ++){
-            arr[h] = t;
-            t --;
-            };
-
-            return s;
+            else{
+                printf("\n!操作停止!\n");
+                return 0;
+                }
+                return s;
     }
-
-int testbit(int* arr){
-    int i;
-    printf("输入测试的位数: ");
-    scanf("%d", &i);
-    return test(arr, i);
-    }
-
 int main(void)
 {
     char ch = 0;
-	int len = 0;
+	int len = testbit();
 	int s = 0;
-	int* arr = (int*)malloc(sizeof(int) * max);
+	int* arr = (int*)malloc(sizeof(int) * len);
 	/*printf("输入要进行排序的数字(间隔为空格)：");
 	while(scanf("%d", &arr[s]) != EOF)
 	{
@@ -42,7 +44,7 @@ int main(void)
 		if(getchar() == '\n')
 			break;
 	}*/
-    len = testbit(arr);
+    test(arr, len);
 	if(len > 1)
 	{
 		for(int i = 0; i < len -1; i ++)
