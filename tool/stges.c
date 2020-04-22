@@ -134,7 +134,7 @@ int juge(FILE* in, char* buff, char* tmp){
 void traverse_list(CNS* cns){
 	CNS* cnt = cns;
 	while(cnt != NULL){
-		printf(">%s的权值为: ", cnt->cr);
+		printf("字符> %s的权值为: ", cnt->cr);
 		printf("%d\n", cnt->weight);
 		cnt = cnt->pnext;
 	}
