@@ -34,14 +34,9 @@ void screen(FILE* in, CNS* cns){
 	int time = 0;
 	int size = 0;
 
-	CNS* cmt = NULL;
-	fseek(in, 0, SEEK_END);
-	size = ftell(in);
-	rewind(in);
-
 	buff = fgetc(in);
 	while(!feof(in)){
-		cmt = cns;
+		CNS* cmt = cns;
 
 		char tmp[10] = "0";
 		juge(in, &buff, tmp);
