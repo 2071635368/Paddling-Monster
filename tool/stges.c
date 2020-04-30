@@ -11,11 +11,11 @@
 # include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
-# define ascll 127
-# define towcode 223
-# define cncode 239
-# define wcode 247
-# define charin 191
+# define ASCII 127
+# define TOWCODE 223
+# define CNCODE 239
+# define WCODE 247
+# define CHARIN 191
 
 typedef struct cnlist{
 	char cr[10];
@@ -94,26 +94,26 @@ int juge(FILE* in, char* buff, char* tmp){
 	int i = 0;
 	int time = 0;
 	int j = 0;
-	if((int)*buff <= ascll){
+	if((int)*buff <= ASCII){
 		*tmp = *buff;
 		*buff = fgetc(in);
 		time ++;
 		return time;
 	}
 	else{
-		if(((int)*buff) > ascll && ((int)*buff) <= towcode){
+		if(((int)*buff) > ASCII && ((int)*buff) <= TOWCODE){
 			tmp[i] = *buff;
 			*buff = fgetc(in);
 			i ++;
 			j = 2;
 		}
-		else if(((int)*buff) > ascll && ((int)*buff) <= cncode){
+		else if(((int)*buff) > ASCII && ((int)*buff) <= CNCODE){
 			tmp[i] = *buff;
 			*buff = fgetc(in);
 			i ++;
 			j = 3;
 		}
-		else if(((int)*buff) > ascll && ((int)*buff) <= wcode){
+		else if(((int)*buff) > ASCII && ((int)*buff) <= WCODE){
 			tmp[i] = *buff;
 			*buff = fgetc(in);
 			i ++;
@@ -123,7 +123,7 @@ int juge(FILE* in, char* buff, char* tmp){
 			perror("Error: ");
 			exit(-1);
 		}
-		while(((int)*buff) <= charin && j != 1){	
+		while(((int)*buff) <= CHARIN && j != 1){	
 			tmp[i] = *buff;
 			*buff = fgetc(in);
 			i ++;
@@ -247,3 +247,4 @@ int traverse_list(CNS* cns){
 	printf("\nPs: Carriage return is the real carriage return !\n");
 	return i;
 }
+
