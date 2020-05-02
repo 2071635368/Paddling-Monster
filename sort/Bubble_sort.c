@@ -2,7 +2,7 @@
 
 int main(void)
 {
-        char ch = 0;
+    char ch = 0;
 	int len = 0;
 	int s = 0;
 	int arr[999] = {0};
