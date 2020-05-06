@@ -107,13 +107,13 @@ int juge(FILE* in, char* buff, char* tmp){
 			i ++;
 			j = 2;
 		}
-		else if(((int)*buff) > ASCII && ((int)*buff) <= CNCODE){
+		else if(((int)*buff) > TOWCODE && ((int)*buff) <= CNCODE){
 			tmp[i] = *buff;
 			*buff = fgetc(in);
 			i ++;
 			j = 3;
 		}
-		else if(((int)*buff) > ASCII && ((int)*buff) <= WCODE){
+		else if(((int)*buff) > CNCODE && ((int)*buff) <= WCODE){
 			tmp[i] = *buff;
 			*buff = fgetc(in);
 			i ++;
